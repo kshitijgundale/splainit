@@ -42,7 +42,7 @@ the exact warning if it persists. Do not bypass that warning.
 | --- | --- | --- | --- |
 | macOS 14.0, fresh Apple Silicon profile | Not run | Not observed | Not run |
 | Current macOS, fresh Apple Silicon profile | Not run | Not observed | Not run |
-| macOS 14.3 development profile | Local package validation only | Downloaded Gatekeeper behavior not tested | Not acceptance evidence |
+| macOS 14.3 development profile | Verified local DMG mounted; app copied to `/Applications` and launched | Downloaded Gatekeeper behavior not tested; local DMG was not quarantined | App still reported Accessibility denied after its entry was enabled and it was restarted; not acceptance evidence |
 
 For each fresh-profile run, record OS/build, app version, DMG SHA-256, download
 URL, exact warning text, whether per-app approval was offered, and subsequent

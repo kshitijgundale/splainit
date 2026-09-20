@@ -16,18 +16,24 @@ unverified provenance and require confirmation. A failed test is evidence, not a
 reason to infer a different path works.
 
 On 2026-09-20, all six target applications were found installed on this macOS
-14.3 development machine, and the ad-hoc-signed current app was launched. System
-Events could list the `splainit` process name, but a window inspection returned
-`osascript is not allowed assistive access (-25211)`. No selected-text or
-empty-selection result was collected in this attempt. The matrix below remains
-pending until Accessibility access is granted to the automation host and each
-control is actually exercised; process enumeration is not capture evidence.
+14.3 development machine. After installing the verified local release DMG into
+`/Applications`, a native Accessibility harness selected exactly the first line
+of a harmless TextEdit fixture and posted the configured shortcut. Splainit's
+panel appeared, but returned `permission_required` with detail `Accessibility
+access is disabled`; no text or capture method was returned. The macOS
+Accessibility page showed Splainit enabled, and TCC diagnostics listed the
+installed bundle as allowed, but the running app still reported denied after a
+restart. This contradiction remains unresolved. The harness observed the panel
+after an intentional 2-second wait, so capture latency was not measured; the
+panel was present within about 2.1 seconds. System Events separately returned
+`osascript is not allowed assistive access (-25211)` despite its enabled entry.
+The other five target apps and every empty-selection case remain untested.
 
 | App and control | Exact expected / actual text | Empty selection and false positives | Method; verification / OCR confidence | Latency | Permissions and confirmation | Development result |
 | --- | --- | --- | --- | --- | --- | --- |
 | Safari page text | Pending / pending | Pending | Pending | Pending | Pending | Not run |
 | Chrome page text | Pending / pending | Pending | Pending | Pending | Pending | Not run |
-| TextEdit document | `Splainit feasibility selection probe` / same in **old** 2026-09-19 probe | Pending | Old direct AX; verified / not applicable | Not recorded | Accessibility; no confirmation | New resolver not run |
+| TextEdit document | `Splainit matrix TextEdit selection 24A.` / no app text returned; harness confirmed exact source selection | Not run; false positives unknown | No method; `permission_required` / confidence not applicable. Old 2026-09-19 direct-AX probe passed before the current resolver. | Not measured; panel present within about 2.1 s including fixed wait | App reported Accessibility denied; no confirmation or network request | Current installed release build blocked on permission check |
 | Notes note body | Pending / pending | Pending | Pending | Pending | Pending | Not run |
 | Preview selectable-text PDF | Pending / pending | Pending | Pending | Pending | Pending | Not run |
 | VS Code editor text | Pending / pending | Pending | Pending | Pending | Pending | Not run |
