@@ -40,6 +40,15 @@ or confirmation was observed. Initial Chrome/VS Code trials occurred after
 Splainit had exited cleanly and were discarded; the recorded no-panel retries
 were run while its process was confirmed alive.
 
+A subsequent manual Control-Option-K attempt in VS Code displayed
+`Capture blocked in Code: Cannot establish the focused source element`.
+This confirms the shortcut reached Splainit, but no text was captured: the
+native provider could not establish the focused editor element before its
+secure-field and source-window checks. An isolated VS Code profile with
+`editor.accessibilitySupport` set to `on` started without an AX-visible
+window, so that setting's effect on capture remains unmeasured. The user's
+normal VS Code settings were not changed.
+
 | App and control | Exact expected / actual text | Empty selection and false positives | Method; verification / OCR confidence | Latency | Permissions and confirmation | Development result |
 | --- | --- | --- | --- | --- | --- | --- |
 | Safari page text | `Splainit matrix Safari selection 24B.` / no text returned after Command-A or drag | Blank-page click returned `unavailable` in 105 ms; no false text | No capture method; status `unavailable`; verification/confidence not applicable | 98–100 ms for drag-selected attempt | Accessibility granted; visual action was not exposed; no confirmation | Semantic page selection unavailable in this control |
@@ -48,7 +57,7 @@ were run while its process was confirmed alive.
 | TextEdit document | `Splainit matrix TextEdit selection 24A.` / exact match | Zero-length AX range returned `no_selection` in 155 ms; no false text | `ax_selected_text`; semantically verified; OCR confidence not applicable | 171 ms selected | Accessibility granted; no confirmation needed | Direct AX selected and empty cases pass |
 | Notes note body | `Splainit matrix Notes selection 24D.` / no fixture or app result | Unavailable: no Notes account exists on this profile | Method/verification/confidence unavailable | Not measurable | Account setup required; Accessibility path not exercised | Temporary note creation failed before writing; zero matching notes remained |
 | Preview selectable-text PDF | `Splainit matrix Preview selection 24E.` / exact match | Blank-page click cleared source AX text; app returned `unavailable` in 100 ms, with no false text | `ax_selected_text`; semantically verified; OCR confidence not applicable | 133 ms selected | Accessibility granted; no confirmation needed | Selectable PDF direct AX passes; empty state is unavailable rather than `no_selection` |
-| VS Code editor text | Fixture begins `Splainit matrix VS Code selection 24F.` / no panel result; source selection not independently verified | Unavailable: no panel under automated shortcut; false positives unknown | Method/verification/confidence unavailable | Not measurable | Accessibility granted to Splainit; no permission result observed | Editor AX tree exposed no text node; manual shortcut check pending |
+| VS Code editor text | Fixture begins `Splainit matrix VS Code selection 24F.` / no text captured; source selection not independently verified | Empty selection untested; false positives unknown | No capture method; status `blocked`; verification/confidence not applicable | Not measured for manual attempt | Accessibility granted to Splainit; no visual action because focused source element was unavailable | Automated attempt showed no panel; manual shortcut displayed `Capture blocked in Code: Cannot establish the focused source element`. Editor AX tree exposed no text node |
 
 AX-range fallback, AX-bounds OCR, and explicit-drag OCR were not produced by any
 of these controls. Safari's `unavailable` result did not expose a Drag to explain
