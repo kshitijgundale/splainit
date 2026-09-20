@@ -15,6 +15,14 @@ offers them; write `unavailable` where a path cannot be exercised. OCR must show
 unverified provenance and require confirmation. A failed test is evidence, not a
 reason to infer a different path works.
 
+On 2026-09-20, all six target applications were found installed on this macOS
+14.3 development machine, and the ad-hoc-signed current app was launched. System
+Events could list the `splainit` process name, but a window inspection returned
+`osascript is not allowed assistive access (-25211)`. No selected-text or
+empty-selection result was collected in this attempt. The matrix below remains
+pending until Accessibility access is granted to the automation host and each
+control is actually exercised; process enumeration is not capture evidence.
+
 | App and control | Exact expected / actual text | Empty selection and false positives | Method; verification / OCR confidence | Latency | Permissions and confirmation | Development result |
 | --- | --- | --- | --- | --- | --- | --- |
 | Safari page text | Pending / pending | Pending | Pending | Pending | Pending | Not run |

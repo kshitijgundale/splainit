@@ -10,8 +10,10 @@ Developer Program for this release. It has no Developer ID signature or Apple
 notarization. macOS may show an unidentified or unverified developer warning;
 we do not promise a warning-free installation.
 
-1. Download the DMG and its matching `.dmg.sha256` file from the same Splainit
-   release. In Terminal, change to their download folder and run
+1. Download the DMG and its matching `.dmg.sha256` file from the same
+   [Splainit GitHub release](https://github.com/kshitijgundale/splainit/releases).
+   The [public source repository](https://github.com/kshitijgundale/splainit)
+   is an additional trust aid. In Terminal, change to their download folder and run
    `shasum -a 256 -c Splainit_0.1.0_aarch64.dmg.sha256`, substituting the actual
    version in the filename. Continue only if it reports `OK`. A checksum detects
    changed bytes; it does not establish who published them.
