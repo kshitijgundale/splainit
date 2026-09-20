@@ -1,0 +1,14 @@
+{
+  "identifier": "panel-capability",
+  "description": "Only the reply panel can read the capture and request explanations",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "allow-latest-capture",
+    "allow-drag-capture",
+    "allow-recover-capture-permission",
+    "allow-explain-capture",
+    "allow-dismiss-panel",
+    "allow-show-settings"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "splainit",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "tauri": "tauri",
+    "build:release": "python3 scripts/build-release.py",
+    "verify:release": "python3 scripts/verify-macos-package.py",
+    "test:native": "sh scripts/test-native.sh",
+    "test": "npm run test:native && npm run test:ui && npm run test:privacy && cargo test --offline --manifest-path src-tauri/Cargo.toml",
+    "test:ui": "node --experimental-strip-types --test tests/capture-ui.test.mjs",
+    "test:privacy": "python3 scripts/test-capture-privacy.py"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "2.11.1"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "2.11.4",
+    "typescript": "5.9.3",
+    "vite": "7.3.6"
+  }
+}

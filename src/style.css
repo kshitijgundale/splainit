@@ -1,0 +1,46 @@
+:root { font: 15px/1.5 -apple-system, BlinkMacSystemFont, sans-serif; color: #1f2937; background: #f7f9fc; }
+body { margin: 0; }
+main { padding: 22px; }
+header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+h1 { margin: 0; font-size: 24px; }
+header span { font-size: 12px; color: #677387; }
+kbd { padding: 1px 5px; border: 1px solid #abb6c6; border-radius: 4px; background: white; }
+#status { font-weight: 600; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 130px; overflow: auto; }
+form { display: flex; align-items: center; gap: 8px; }
+input { padding: 5px 7px; border: 1px solid #abb6c6; border-radius: 4px; min-width: 150px; }
+textarea { padding: 5px 7px; border: 1px solid #abb6c6; border-radius: 4px; min-width: 150px; resize: vertical; }
+#exclusions-form { margin-top: 16px; align-items: flex-start; }
+button { padding: 6px 9px; border: 0; border-radius: 4px; color: white; background: #1e58bd; cursor: pointer; }
+section { margin-top: 16px; border-top: 1px solid #d4dce7; }
+h2 { font-size: 18px; }
+.context-setting { display: block; margin-top: 12px; }
+.context-setting input { min-width: 0; }
+header button { background: transparent; color: #475569; border: 1px solid #abb6c6; }
+.hint { color: #64748b; }
+#selection, #answer { padding: 9px; background: #fff; border: 1px solid #d4dce7; border-radius: 6px; }
+#presets { display: flex; gap: 6px; flex-wrap: wrap; }
+#presets[hidden] { display: none; }
+#answer-status { min-height: 22px; }
+details { margin-top: 16px; }
+summary { cursor: pointer; font-weight: 600; }
+.history-tools { display: flex; gap: 8px; margin: 9px 0; }
+#history-list { list-style: none; padding: 0; }
+#history-list li { border-top: 1px solid #d4dce7; padding: 8px 0; }
+#history-list strong { display: block; margin-top: 8px; }
+body[data-view="panel"] #onboarding,
+body[data-view="panel"] #settings,
+body[data-view="panel"] #history-view { display: none; }
+body[data-view="settings"] .hint,
+body[data-view="settings"] #status,
+body[data-view="settings"] #provenance,
+body[data-view="settings"] #permission-recovery,
+body[data-view="settings"] #selection,
+body[data-view="settings"] #context-note,
+body[data-view="settings"] #confirm,
+body[data-view="settings"] #drag,
+body[data-view="settings"] #presets,
+body[data-view="settings"] #answer-status,
+body[data-view="settings"] #retry,
+body[data-view="settings"] #answer,
+body[data-view="settings"] #open-settings { display: none; }

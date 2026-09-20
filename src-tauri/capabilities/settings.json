@@ -1,0 +1,30 @@
+{
+  "identifier": "settings-capability",
+  "description": "Preferences and local history without access to live captured text",
+  "windows": ["settings"],
+  "permissions": [
+    "core:default",
+    "allow-shortcut-status",
+    "allow-current-shortcut",
+    "allow-set-shortcut",
+    "allow-get-excluded-apps",
+    "allow-set-excluded-apps",
+    "allow-api-key-configured",
+    "allow-save-api-key",
+    "allow-remove-api-key",
+    "allow-context-enabled",
+    "allow-set-context-enabled",
+    "allow-get-model",
+    "allow-set-model",
+    "allow-history-enabled",
+    "allow-set-history-enabled",
+    "allow-list-history",
+    "allow-delete-history-entry",
+    "allow-clear-history",
+    "allow-accessibility-granted",
+    "allow-request-accessibility",
+    "allow-hide-current-window",
+    "allow-check-for-updates",
+    "allow-install-update"
+  ]
+}

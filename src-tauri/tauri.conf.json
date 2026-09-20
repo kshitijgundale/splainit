@@ -1,0 +1,52 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Splainit",
+  "version": "0.1.0",
+  "identifier": "app.splainit.desktop",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Splainit",
+        "width": 540,
+        "height": 520,
+        "visible": false,
+        "alwaysOnTop": true
+      },
+      {
+        "label": "settings",
+        "title": "Splainit Settings",
+        "url": "index.html?view=settings",
+        "width": 640,
+        "height": 720,
+        "visible": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; connect-src ipc: http://ipc.localhost; style-src 'self'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "app",
+      "dmg"
+    ],
+    "macOS": {
+      "minimumSystemVersion": "14.0",
+      "signingIdentity": "-"
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDFEMDI1MkQ4OEE2OEM4RTMKUldUanlHaUsyRklDSGJtSFBsU3hCNStsU3F4ZktqMCtKOGhRMkd0N3RsZ1ozUWtkUEErN09SbmoK",
+      "endpoints": ["https://github.com/kshitijgundale/splainit/releases/latest/download/latest.json"]
+    }
+  }
+}
