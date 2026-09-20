@@ -143,6 +143,16 @@ OpenAI Keychain item keeps service `app.splainit.desktop.openai` and account
 changes can affect macOS permissions and Keychain approval; observe that behavior
 rather than assuming it is preserved.
 
+During the 2026-09-20 development install, macOS kept an Accessibility code
+requirement for an older ad-hoc build (`b4c88fb5...`) while the installed build
+had hash `1dc3cbbe...`. The enabled toggle did not grant the new binary access.
+Resetting only Splainit's Accessibility entry, granting the installed copy, and
+restarting restored exact TextEdit capture. [Apple Developer Technical Support
+confirms](https://developer.apple.com/forums/thread/819406) that ad-hoc signing
+changes the app identity across builds for TCC. A real updater test must check
+whether each update needs a fresh per-app grant; do not claim permissions survive
+updates from the unchanged bundle identifier alone.
+
 Install a real prior release, save harmless history, configure a test credential,
 shortcut and preferences, and record permissions. Upgrade through Settings and
 verify history search, credential usability without exposing it, shortcut,
